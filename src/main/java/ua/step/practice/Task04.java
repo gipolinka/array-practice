@@ -17,6 +17,23 @@ public class Task04 {
         int len = scanner.nextInt();
 
         // TODO: Пишите код здесь
-
+        int[] arr = new int[len];
+        System.out.println("Введите элементы массива:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        boolean unequal = true;
+        for (int i = 0; i < arr.length; i++) {
+            if (!unequal) {
+                break;
+            }
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    unequal = false;
+                    break;
+                }
+            }
+        }
+        System.out.println(unequal ? "Yes" : "No");
     }
 }

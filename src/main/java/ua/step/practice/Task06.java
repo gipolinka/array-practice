@@ -2,6 +2,7 @@ package ua.step.practice;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -31,5 +32,23 @@ public class Task06 {
         Random rnd = new Random(seed);
 
         // TODO: Пишите код здесь
+        int [] arr= new int[10];
+        for (int i = 0; i <10 ; i++) {
+            arr[i]=rnd.nextInt(6+5)-5;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            boolean single=true;
+            for (int j =0; j < arr.length ; j++) {
+                if(arr[i]==arr[j]&&i!=j)
+                {
+                    single=false;
+                    break;
+                }
+            }
+            if(single)
+            {
+                System.out.println(arr[i]+" -> "+i+" индекс");
+            }
+        }
     }
 }

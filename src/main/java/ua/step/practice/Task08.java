@@ -2,6 +2,7 @@ package ua.step.practice;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,5 +34,31 @@ public class Task08 {
 
         char[] arr;
         // TODO: Пишите код здесь
+        arr=new char[len];
+        for (int i = 0; i <arr.length ; i++) {
+            arr[i]=(char)(rnd.nextInt(123-97)+97);
+        }
+        char [] arrCopy;
+        arrCopy=Arrays.copyOf(arr, arr.length);
+        Arrays.sort(arrCopy);
+        //System.out.println(Arrays.toString(arrCopy));
+        for (int i = 0; i <arrCopy.length ; i++) {
+            int num=0;
+            for (int j = 0; j <arrCopy.length ; j++) {
+                if(arrCopy[i]==arrCopy[j])
+                {
+                    if(i>j)
+                    {
+                        break;
+                    }
+                    num++;
+                }
+            }
+            if(num>3)
+            {
+                String times=((num%10==1||num%10==2||num%10==3||num%10==4)&&(num<10)||(num>20))?"раза":"раз";
+                System.out.println(arrCopy[i]+" - "+num+" "+times);
+            }
+        }
     }
 }

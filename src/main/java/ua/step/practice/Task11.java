@@ -2,6 +2,7 @@ package ua.step.practice;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,9 +14,9 @@ import java.util.Scanner;
  * большого массива.
  * Значения n и m вводятся с клавиатуры пользователем.
  * Вывести на экран исходный массив и разделенный массив.
- *
+ * <p>
  * Пример вывода:
- *
+ * <p>
  * Исходный массив [35, 80, 39, 79, 63, 32, 89, 22, 29, 29]
  * Результат
  * [35, 80, 39]
@@ -39,6 +40,26 @@ public class Task11 {
 
         int[] arr;
         // TODO: Пишите код здесь
-
+        arr = new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rnd.nextInt(101);
+        }
+        System.out.println("Исходный массив " + Arrays.toString(arr));
+        int size = (n % m == 0) ? n / m : n / m + 1;
+        int[][] arrSplit = new int[size][];
+        int index = 0;
+        while (index < size) {
+            if (index != (size - 1)) {
+                arrSplit[index] = Arrays.copyOfRange(arr, m * index, m * (index + 1));
+            } else {
+                arrSplit[index] = Arrays.copyOfRange(arr, m * index, arr.length );
+            }
+            index++;
+        }
+        System.out.println("Результат");
+        for (int [] item:arrSplit
+             ) {
+            System.out.println(Arrays.toString(item));
+        }
     }
 }

@@ -2,6 +2,7 @@ package ua.step.practice;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,6 +32,24 @@ public class Task10 {
 
         int[] arr;
         // TODO: Пишите код здесь
-
+        arr=new int [len];
+        for (int i = 0; i <arr.length ; i++) {
+            arr[i]= rnd.nextInt(34);
+        }
+        System.out.println("Исходный массив "+Arrays.toString(arr));
+        boolean found=false;
+        for (int i = 1; i < arr.length-1 ; i++) {
+            if(arr[i]!=0&&arr[i-1]!=0&&arr[i+1]!=0)
+            {
+                if (arr[i] % arr[i - 1] == 0 && arr[i] % arr[i + 1] == 0) {
+                    found=true;
+                    System.out.println("Индекс элемента " + i);
+                }
+            }
+        }
+        if(!found)
+        {
+            System.out.println("Индекс элемента -1");
+        }
     }
 }
